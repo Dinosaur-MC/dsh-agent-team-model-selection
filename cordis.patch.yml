@@ -1,0 +1,6 @@
+# Host half of the teammate model picker.
+# The browser half is declared through package.json dsh.client.
+- insert:
+    - id: dsh-agent-team-model-selection
+      name: dsh-agent-team-model-selection
+      config: {}

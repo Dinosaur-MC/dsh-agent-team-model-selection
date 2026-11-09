@@ -1,10 +1,26 @@
 {
   "name": "dsh-agent-team-model-selection",
   "version": "0.1.0",
-  "private": true,
   "description": "User-facing model switching for DSH Agent Teams teammates and addressed subagents.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dinosaur-MC/dsh-agent-team-model-selection.git"
+  },
+  "homepage": "https://github.com/Dinosaur-MC/dsh-agent-team-model-selection",
+  "bugs": {
+    "url": "https://github.com/Dinosaur-MC/dsh-agent-team-model-selection/issues"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "agent-team",
+    "subagent",
+    "model-selection"
+  ],
+  "license": "MIT",
+  "author": "Dinosaur_MC",
   "type": "module",
   "engines": {
+    "node": "^22.19.0 || >=24.0.0",
     "dsh": ">=0.2.2-rc.1 <0.3.0-0"
   },
   "exports": {
@@ -12,6 +28,12 @@
     "./client": "./lib/client.js",
     "./package.json": "./package.json"
   },
+  "files": [
+    "lib/**/*.js",
+    "cordis.patch.yml",
+    "LICENSE",
+    "README.md"
+  ],
   "dsh": {
     "bundle": {
       "patch": "./cordis.patch.yml"

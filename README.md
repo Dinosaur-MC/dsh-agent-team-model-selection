@@ -3,7 +3,7 @@
 User-facing model switching for **DSH Agent Teams teammates and addressed subagents**.
 
 - **Host**: local HTTP API (`/dsh-teammate-model/*`) that accepts an addressed subagent/teammate, checks the model route against the live LLM registry and the profile's delegation allowlist, and applies it through the Agent model facade.
-- **UI**: the official `ModelSelect` component (copied/adapted from `dsh-client-ui-model-selection`) mounted directly in `conversation.input.right`. It uses the official catalog, official trigger/menu styling and anchoring, and keeps the selected route in a per-session remembered selection so reopening the picker does not snap back to the stale projection while a dormant teammate is pending. It does not touch, hide or re-position `conversation.input.model`, does not portal, and does not change z-index. The official main-session picker stays untouched.
+- **UI**: the official `ModelSelect` component (copied/adapted from `dsh-client-ui-model-selection`) mounted directly in `conversation.input.right`. It uses the official catalog, official trigger/menu styling and anchoring, and keeps the selected route in a per-session remembered selection so reopening the picker does not snap back to the stale projection while a dormant teammate is pending. It does not touch, hide or re-position `conversation.input.model`, does not portal the trigger/seat (only the official menu surface is portaled), and does not change z-index. The official main-session picker stays untouched.
 
 ## Why this shape
 

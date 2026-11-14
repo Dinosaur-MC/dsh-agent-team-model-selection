@@ -10,9 +10,16 @@ const source = await fs.readFile(path.join(here, '..', 'lib', 'client.js'), 'utf
 test('client mounts the official ModelSelect directly in the right slot', () => {
   assert.match(source, /id: "dsh-agent-team-model-selection"/)
   assert.match(source, /conversation\.input\.right/)
-  assert.match(source, /function RightSeat/)
+  assert.doesNotMatch(source, /conversation\.input\.left/)
+  assert.match(source, /function TeammateSeat/)
   assert.match(source, /react\.createElement\(ModelSelect/)
   assert.match(source, /id: "teammate-model-selection"/)
+})
+
+test('anchoring degrades gracefully when the host drops useAnchoredPosition', () => {
+  assert.match(source, /function useLocalAnchoredPosition/)
+  assert.match(source, /typeof _deepseek_ai_dsh_client_ui_primitives\.useAnchoredPosition === "function"/)
+  assert.match(source, /const menuPos = useAnchoredPositionCompat\(\{/)
 })
 
 test('official directory is re-aimed at the teammate/subagent host route', () => {
@@ -21,7 +28,7 @@ test('official directory is re-aimed at the teammate/subagent host route', () =>
   assert.match(source, /directory\.select = async/)
 })
 
-test('no single-slot takeover, portal, or z-index hacks remain', () => {
+test('no single-slot takeover or z-index hacks remain', () => {
   assert.doesNotMatch(source, /function OfficialSeat/)
   assert.doesNotMatch(source, /querySelectorAll/)
   assert.doesNotMatch(source, /visibility = "hidden"/)

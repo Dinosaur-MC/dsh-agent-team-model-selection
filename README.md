@@ -9,6 +9,12 @@ User-facing model switching for **DSH Agent Teams teammates and addressed subage
 
 The official `conversation.input.model` seat is hidden for addressed subagent sessions, and `session/selectModel` refuses subagent-owned sessions. This plugin adds a separate right-slot seat and a host route; it does not replace the official picker or the official plugin row.
 
+## Compatibility
+
+- DSH `0.2.2-rc.1` through `0.2.2-rc.3`; `0.2.2-rc.3` is the verified runtime.
+- rc3 removed `useAnchoredPosition` from the client primitives. The picker keeps the official hook when present and falls back to local fixed positioning when it is not.
+- The seat stays in `conversation.input.right`; no position or z-index override is applied.
+
 ## Host API
 
     GET  /dsh-teammate-model/health

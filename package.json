@@ -1,6 +1,6 @@
 {
   "name": "dsh-agent-team-model-selection",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "User-facing model switching for DSH Agent Teams teammates and addressed subagents.",
   "repository": {
     "type": "git",
@@ -31,6 +31,7 @@
   "files": [
     "lib/**/*.js",
     "cordis.patch.yml",
+    "CHANGELOG.md",
     "LICENSE",
     "README.md"
   ],
